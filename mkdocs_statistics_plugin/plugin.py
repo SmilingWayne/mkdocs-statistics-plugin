@@ -169,14 +169,14 @@ class StatisticsPlugin(BasePlugin):
                 code_lines += len(code.splitlines()) - 2
             
             lines = markdown.splitlines()
-            h1 = -1
-            for idx, line in enumerate(lines):
-                if re.match(r"\s*# ", line): # ATX syntax
-                    h1 = idx
-                    break
-                if re.match(r"=+\s*$", line) and idx > 0 and lines[idx - 1]: # Setext syntax
-                    h1 = idx
-                    break
+            h1 = 0
+            # for idx, line in enumerate(lines):
+            #     if re.match(r"\s*# ", line): # ATX syntax
+            #         h1 = idx
+            #         break
+            #     if re.match(r"=+\s*$", line) and idx > 0 and lines[idx - 1]: # Setext syntax
+            #         h1 = idx
+            #         break
             try:
                 read_time = round(
                     words / self.config.get("words_per_minute") + \
